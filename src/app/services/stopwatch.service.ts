@@ -132,7 +132,7 @@ export class StopwatchService {
     let time: ClockWrapper = {
       savedEpochTime: Date.now(),
       currentClock: clock
-    }
+    };
     localStorage.setItem(LS_CLOCK_TIME, JSON.stringify(time));
   }
 

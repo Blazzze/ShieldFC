@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Clock } from 'src/app/models/clock';
 import { StopwatchService } from 'src/app/services/stopwatch.service';
@@ -8,13 +8,9 @@ import { StopwatchService } from 'src/app/services/stopwatch.service';
   templateUrl: './segments-clock.component.html',
   styleUrls: ['./segments-clock.component.scss']
 })
-export class SegmentsClockComponent implements OnInit {
+export class SegmentsClockComponent implements OnInit, OnDestroy {
 
   stopwatchInterval: any;
-  minutes = 0;
-  seconds = 0;
-  miliseconds = 0;
-
   runningStateSub: Subscription;
   clockStateSub: Subscription;
 
