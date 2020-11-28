@@ -1,0 +1,17 @@
+<div class="list-wrapper">
+
+    <div class="single-item" *ngFor="let tick of tickList; let i = index">
+        <div class="content">
+            <app-simple-segment [minutes]="tick.minutes" [seconds]="tick.seconds" [miliseconds]="tick.miliseconds">
+            </app-simple-segment>
+            <div class="remove-wrap">
+                <div class="remove-text" (click)="removeLine(i)">
+                    REMOVE
+                </div>
+
+            </div>
+        </div>
+
+        <hr class="custom-hr">
+    </div>
+</div>

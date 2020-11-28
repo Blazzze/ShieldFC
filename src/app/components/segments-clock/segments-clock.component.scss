@@ -1,0 +1,32 @@
+@import "../../../style-colors.scss";
+
+:host {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.digits-wrap {
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.delimeter {
+  font-size: 48px;
+  font-weight: bold;
+  color: $lime;
+}
+
+.blink {
+  opacity: 0;
+  display: block !important;
+}
+
+.colon {
+  line-height: 41px;
+}
+.decimal-point {
+  line-height: 63px;
+  height: 53px;
+}

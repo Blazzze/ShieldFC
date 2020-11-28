@@ -1,8 +1,32 @@
 <div class="container">
     <div class="screen">
+        <app-segments-clock></app-segments-clock>
+    </div>
+    <div>
 
     </div>
     <div class="buttons">
+        <button *ngIf="!isRunning" class="button play" (click)="toggleRun(true)">
+            <div>
+                <fa-icon [icon]="faPlay"></fa-icon>
+                <span> &nbsp; Play</span>
+            </div>
+
+        </button>
+
+        <button *ngIf="isRunning" class="button play" (click)="toggleRun(false)">
+            <div>
+                <fa-icon [icon]="faPause"></fa-icon>
+                <span> &nbsp; Pause</span>
+            </div>
+
+        </button>
+        <button (click)="saveTime()" class="button tick">
+            <fa-icon [icon]="faStopwatch"></fa-icon>
+        </button>
+        <button (click)="trash()" class="button delete">
+            <fa-icon [icon]="faTrashAlt"></fa-icon>
+        </button>
     </div>
 
 

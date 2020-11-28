@@ -65,7 +65,7 @@
       "as-needed"
     ],
     "quotemark": [
-      true,
+      false,
       "single"
     ],
     "semicolon": {
@@ -104,6 +104,7 @@
         }
       ]
     },
+    "prefer-const": false,
     "variable-name": {
       "options": [
         "ban-keywords",
@@ -111,6 +112,7 @@
         "allow-pascal-case"
       ]
     },
+    "comment-format": false,
     "whitespace": {
       "options": [
         "check-branch",

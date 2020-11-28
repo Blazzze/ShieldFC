@@ -1,0 +1,21 @@
+.list-wrapper {
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 68px;
+  }
+  .remove-wrap {
+    color: white;
+    font-weight: bold;
+    background: red;
+    line-height: 17px;
+    padding: 7px;
+    display: none;
+  }
+}
+
+.content:hover .remove-wrap {
+  display: block;
+  cursor: pointer;
+}

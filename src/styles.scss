@@ -1,5 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 
-body{
-    background-color:  #333333;
+body {
+  background-color: #333333;
+  font-family: "Roboto", sans-serif;
+}
+
+seven-seg.green-digits [display] {
+  background-color: #242424;
+  fill: #82db30; /* Segment color */
+  height: 3em;
+}
+
+seven-seg.white-digits [display] {
+  background-color: #333333;
+  fill: white; /* Segment color */
+  height: 1.5em;
+}
+
+seven-seg.green-digits [segmentOff],
+seven-seg.white-digits [segmentOff] {
+  opacity: 0.15; /* Turned off segments are 20% opacity by default. */
+}
+
+seven-seg #dot {
+  display: none;
 }

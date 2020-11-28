@@ -1,0 +1,22 @@
+@import "../../../style-colors.scss";
+
+.digits-wrap {
+  display: flex;
+}
+
+.delimeter {
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+}
+
+.colon {
+  line-height: 20px;
+  margin-right: 5px;
+  margin-left: 3px;
+}
+.decimal-point {
+  line-height: 29px;
+  height: 29px;
+  padding-right: 2px;
+}
