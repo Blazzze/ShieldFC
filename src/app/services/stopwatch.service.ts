@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { HostListener, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Clock, ClockWrapper } from '../models/clock';
 import { filter, distinctUntilChanged } from 'rxjs/operators';
@@ -10,6 +10,7 @@ const LS_TICK_LIST = "LS_TICK_LIST";
   providedIn: 'root'
 })
 export class StopwatchService {
+
 
 
   emptyClock: Clock = {
@@ -27,7 +28,17 @@ export class StopwatchService {
   private tickListSubject = new BehaviorSubject<Clock[]>(this.getTicksFromStorage());
   public tickList$ = this.tickListSubject.asObservable();
 
-  constructor() { }
+  constructor() {
+
+  }
+
+
+
+  getResumeTime(): void {
+    let clock = this.getTimeFromStorage();
+    console.log("clock");
+    this.clockStateSubject.next(clock);
+  }
 
 
   isClockRunning(): boolean {
@@ -69,6 +80,7 @@ export class StopwatchService {
         let now = Date.now();
         let oldTime = clockWrap.savedEpochTime;
         let milisecondsAlpha = now - oldTime;
+        console.log("miliSecs Alpha", milisecondsAlpha);
         let addedMinutes = Math.floor(milisecondsAlpha / 60000);
         milisecondsAlpha = milisecondsAlpha - addedMinutes * 60000;
         let addedSeconds = Math.floor(milisecondsAlpha / 1000);
@@ -135,6 +147,7 @@ export class StopwatchService {
     };
     localStorage.setItem(LS_CLOCK_TIME, JSON.stringify(time));
   }
+
 
 
 

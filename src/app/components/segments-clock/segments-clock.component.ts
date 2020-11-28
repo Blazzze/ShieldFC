@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { noop, Subscription } from 'rxjs';
 import { Clock } from 'src/app/models/clock';
 import { StopwatchService } from 'src/app/services/stopwatch.service';
 
@@ -18,6 +18,8 @@ export class SegmentsClockComponent implements OnInit, OnDestroy {
   constructor(private stopwatchService: StopwatchService) {
   }
 
+
+  isSaveTime = true;
   hideDelimeter = false;
   clock: Clock = {
     miliseconds: 0,
@@ -39,7 +41,7 @@ export class SegmentsClockComponent implements OnInit, OnDestroy {
   start(): void {
     this.stopwatchInterval = setInterval(() => {
       this.clock.miliseconds++;
-      this.stopwatchService.saveTime(this.clock);
+      this.isSaveTime ? this.stopwatchService.saveTime(this.clock) : noop();
       if (this.clock.miliseconds >= 100) {
         this.hideDelimeter = !this.hideDelimeter;
         this.clock.miliseconds = 0;
@@ -51,6 +53,22 @@ export class SegmentsClockComponent implements OnInit, OnDestroy {
         }
       }
     }, 10);
+  }
+
+  //Chrome Move to other tab bug. stops intervals and timeouts..
+  @HostListener('window:focus', ['$event'])
+  onFocus(event: any): void {
+    console.log("event", event);
+    this.isSaveTime = true;
+    this.stopwatchService.getResumeTime();
+
+  }
+
+  @HostListener('window:blur', ['$event'])
+  onBlur(event: any): void {
+    console.log("event", event);
+    // this.pause();
+    this.isSaveTime = false;
   }
 
   pause(): void {
