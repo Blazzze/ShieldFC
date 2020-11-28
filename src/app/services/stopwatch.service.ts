@@ -129,7 +129,6 @@ export class StopwatchService {
   }
 
   saveTime(clock: Clock): void {
-    console.log("clock", clock);
     let time: ClockWrapper = {
       savedEpochTime: Date.now(),
       currentClock: clock

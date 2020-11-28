@@ -12,14 +12,10 @@ export class SimpleSegmentComponent implements OnInit {
   @Input() minutes: number;
 
   constructor() {
-    console.log("this.minutes", this.minutes);
-    console.log("this.miliseconds", this.miliseconds);
-    console.log("this.seconds", this.seconds);
 
   }
 
   ngOnInit(): void {
-    console.log("HEEEEEREEE");
   }
 
 }

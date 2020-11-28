@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Clock } from 'src/app/models/clock';
 import { StopwatchService } from 'src/app/services/stopwatch.service';
 
@@ -7,14 +8,14 @@ import { StopwatchService } from 'src/app/services/stopwatch.service';
   templateUrl: './saved-ticks-list.component.html',
   styleUrls: ['./saved-ticks-list.component.scss']
 })
-export class SavedTicksListComponent implements OnInit {
+export class SavedTicksListComponent implements OnInit, OnDestroy {
 
   tickList: Clock[];
+  sub: Subscription;
   constructor(private stopwatchService: StopwatchService) { }
 
   ngOnInit(): void {
-    this.stopwatchService.tickList$.subscribe((ticks: Clock[]) => {
-      console.log("ticks", ticks);
+    this.sub = this.stopwatchService.tickList$.subscribe((ticks: Clock[]) => {
       this.tickList = ticks;
 
 
@@ -25,5 +26,9 @@ export class SavedTicksListComponent implements OnInit {
 
   removeLine(index: number): void {
     this.stopwatchService.removeLine(index);
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

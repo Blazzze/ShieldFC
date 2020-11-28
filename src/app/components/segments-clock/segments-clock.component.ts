@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Clock } from 'src/app/models/clock';
 import { StopwatchService } from 'src/app/services/stopwatch.service';
 
@@ -14,6 +15,10 @@ export class SegmentsClockComponent implements OnInit {
   seconds = 0;
   miliseconds = 0;
 
+  runningStateSub: Subscription;
+  clockStateSub: Subscription;
+
+
   constructor(private stopwatchService: StopwatchService) {
   }
 
@@ -25,11 +30,11 @@ export class SegmentsClockComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.stopwatchService.runningState$.subscribe((running: boolean) => {
+    this.runningStateSub = this.stopwatchService.runningState$.subscribe((running: boolean) => {
       running ? this.start() : this.pause();
     });
 
-    this.stopwatchService.clockState$.subscribe((clock: Clock) => {
+    this.clockStateSub = this.stopwatchService.clockState$.subscribe((clock: Clock) => {
       this.clock = clock;
     });
 
@@ -59,10 +64,13 @@ export class SegmentsClockComponent implements OnInit {
 
 
   save(): void {
-    console.log("saveTick");
     this.stopwatchService.saveTick(Object.assign({}, this.clock));
   }
 
+  ngOnDestroy(): void {
+    this.runningStateSub.unsubscribe();
+    this.clockStateSub.unsubscribe();
+  }
 
 
 }
