@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-duo-number',
   templateUrl: './duo-number.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./duo-number.component.scss']
 })
 export class DuoNumberComponent implements OnInit {

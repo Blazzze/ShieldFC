@@ -1,8 +1,8 @@
 //segment
-$height: 38; //is 385
-$width: 20.5;
-$inactiveColor: rgba(255, 255, 255, 0.1);
-$activeColor: rgba(255, 255, 255, 1);
+$height: 49; //is 385
+$width: 26.43;
+$inactiveColor: rgba(140, 219, 20, 0.1);
+$activeColor: rgba(140, 219, 20, 1);
 
 .duo-display {
   display: flex;
@@ -10,7 +10,7 @@ $activeColor: rgba(255, 255, 255, 1);
   .display {
     position: relative;
     width: #{$width}px;
-    background: #333333;
+    background: #242424;
     height: #{$height}px;
 
     .segment {

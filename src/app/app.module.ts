@@ -10,6 +10,7 @@ import { SegmentsClockComponent } from './components/segments-clock/segments-clo
 import { PadRightPipe } from './pipes/pad-right.pipe';
 import { SimpleSegmentComponent } from './components/simple-segment/simple-segment.component';
 import { DuoNumberComponent } from './components/duo-number/duo-number.component';
+import { DuoNumberBigComponent } from './components/duo-number-big/duo-number-big.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DuoNumberComponent } from './components/duo-number/duo-number.component
     SegmentsClockComponent,
     PadRightPipe,
     SimpleSegmentComponent,
-    DuoNumberComponent
+    DuoNumberComponent,
+    DuoNumberBigComponent
   ],
   imports: [
     BrowserModule,
