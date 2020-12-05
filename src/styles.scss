@@ -5,6 +5,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+$size: 3em;
+$color: green;
+$backgroundcolor: red;
+
 seven-seg.green-digits [display] {
   background-color: #242424;
   fill: #82db30; /* Segment color */

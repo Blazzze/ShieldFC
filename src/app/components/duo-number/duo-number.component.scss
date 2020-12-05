@@ -1,0 +1,261 @@
+//segment
+
+$height: 38; //is 385
+$width: 20.5;
+$inactiveColor: rgba(255, 255, 255, 0.2);
+$activeColor: rgba(255, 255, 255, 1);
+
+.duo-display {
+  display: flex;
+
+  .display {
+    position: relative;
+    width: #{$width}px;
+    background: #333333;
+    height: #{$height}px;
+
+    .segment {
+      display: block;
+      width: calc((14 / 20.5) * #{$width}px);
+      height: calc((3 / 38) * #{$height}px);
+      position: relative;
+      background: $inactiveColor;
+    }
+    .segment:after {
+      content: "";
+      position: absolute;
+      left: calc(-1.5 / #{$width} * #{$width}px);
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-right: calc((1.5 / 20.5) * #{$width}px) solid $inactiveColor;
+      border-top: calc((1.5 / 38) * #{$height}px) solid transparent;
+      border-bottom: calc((1.5 / 38) * #{$height}px) solid transparent;
+    }
+    .segment:before {
+      content: "";
+      position: absolute;
+      right: calc(-1.5 / #{$width} * #{$width}px);
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-left: calc((1.5 / 20.5) * #{$width}px) solid $inactiveColor;
+      border-top: calc((1.5 / 38) * #{$height}px) solid transparent;
+      border-bottom: calc((1.5 / 38) * #{$height}px) solid transparent;
+    }
+
+    .A {
+      position: absolute;
+      top: 0px;
+      left: calc((3 / 20.5) * #{$width}px);
+    }
+    .B {
+      position: absolute;
+      top: calc((17.3 / 38) * #{$height}px);
+      right: 0px;
+      transform: rotate(90deg);
+      transform-origin: top right;
+    }
+    .C {
+      position: absolute;
+      bottom: calc((0.4 / 38) * #{$height}px);
+      right: 0px;
+      transform: rotate(90deg);
+      transform-origin: top right;
+    }
+    .D {
+      position: absolute;
+      left: calc((3 / 20.5) * #{$width}px);
+      bottom: 0px;
+    }
+    .E {
+      position: absolute;
+      bottom: calc((17.5 / 38) * #{$height}px);
+      left: 0px;
+      transform: rotate(90deg);
+      transform-origin: bottom left;
+    }
+    .F {
+      position: absolute;
+      top: calc((3.2 / 38) * #{$height}px);
+      left: calc((3 / 20.5) * #{$width}px);
+      transform: rotate(90deg);
+      transform-origin: top left;
+    }
+    .G {
+      position: absolute;
+      top: calc((17.3 / 38) * #{$height}px);
+      left: calc((3.2 / 20.5) * #{$width}px);
+    }
+  }
+
+  .number0 {
+    .A,
+    .B,
+    .C,
+    .D,
+    .E,
+    .F {
+      &.segment {
+        background-color: $activeColor;
+        &::after {
+          border-right-color: $activeColor;
+        }
+        &:before {
+          border-left-color: $activeColor;
+        }
+      }
+    }
+  }
+  .number1 {
+    .B,
+    .C {
+      &.segment {
+        background-color: $activeColor;
+        &::after {
+          border-right-color: $activeColor;
+        }
+        &:before {
+          border-left-color: $activeColor;
+        }
+      }
+    }
+  }
+  .number2 {
+    .A,
+    .B,
+    .D,
+    .E,
+    .G {
+      &.segment {
+        background-color: $activeColor;
+        &::after {
+          border-right-color: $activeColor;
+        }
+        &:before {
+          border-left-color: $activeColor;
+        }
+      }
+    }
+  }
+  .number3 {
+    .A,
+    .B,
+    .C,
+    .D,
+    .G {
+      &.segment {
+        background-color: $activeColor;
+        &::after {
+          border-right-color: $activeColor;
+        }
+        &:before {
+          border-left-color: $activeColor;
+        }
+      }
+    }
+  }
+  .number4 {
+    .B,
+    .C,
+    .F,
+    .G {
+      &.segment {
+        background-color: $activeColor;
+        &::after {
+          border-right-color: $activeColor;
+        }
+        &:before {
+          border-left-color: $activeColor;
+        }
+      }
+    }
+  }
+  .number5 {
+    .A,
+    .C,
+    .D,
+    .F,
+    .G {
+      &.segment {
+        background-color: $activeColor;
+        &::after {
+          border-right-color: $activeColor;
+        }
+        &:before {
+          border-left-color: $activeColor;
+        }
+      }
+    }
+  }
+  .number6 {
+    .A,
+    .C,
+    .D,
+    .E,
+    .F,
+    .G {
+      &.segment {
+        background-color: $activeColor;
+        &::after {
+          border-right-color: $activeColor;
+        }
+        &:before {
+          border-left-color: $activeColor;
+        }
+      }
+    }
+  }
+  .number7 {
+    .A,
+    .B,
+    .C {
+      &.segment {
+        background-color: $activeColor;
+        &::after {
+          border-right-color: $activeColor;
+        }
+        &:before {
+          border-left-color: $activeColor;
+        }
+      }
+    }
+  }
+  .number8 {
+    .A,
+    .B,
+    .C,
+    .D,
+    .E,
+    .F,
+    .G {
+      &.segment {
+        background-color: $activeColor;
+        &::after {
+          border-right-color: $activeColor;
+        }
+        &:before {
+          border-left-color: $activeColor;
+        }
+      }
+    }
+  }
+  .number9 {
+    .A,
+    .B,
+    .C,
+    .D,
+    .F,
+    .G {
+      &.segment {
+        background-color: $activeColor;
+        &::after {
+          border-right-color: $activeColor;
+        }
+        &:before {
+          border-left-color: $activeColor;
+        }
+      }
+    }
+  }
+}

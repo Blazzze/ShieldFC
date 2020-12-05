@@ -1,14 +1,7 @@
 <div class="digits-wrap">
-    <seven-seg class="digits white-digits  minutes" [digits]="2" [decimalPlaces]="0" [value]="minutes">
-    </seven-seg>
-
+    <app-duo-number [value]="minutes"></app-duo-number>
     <div class="delimeter colon">:</div>
-
-    <seven-seg class="digits white-digits  seconds" [digits]="2" [decimalPlaces]="0" [value]="seconds">
-    </seven-seg>
-
+    <app-duo-number [value]="seconds"></app-duo-number>
     <div class="delimeter decimal-point">.</div>
-
-    <seven-seg class="digits white-digits miliseconds" [digits]="2" [decimalPlaces]="0" [value]="miliseconds">
-    </seven-seg>
+    <app-duo-number [value]="miliseconds"></app-duo-number>
 </div>

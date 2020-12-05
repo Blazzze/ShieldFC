@@ -9,6 +9,7 @@ import { SavedTicksListComponent } from './components/saved-ticks-list/saved-tic
 import { SegmentsClockComponent } from './components/segments-clock/segments-clock.component';
 import { PadRightPipe } from './pipes/pad-right.pipe';
 import { SimpleSegmentComponent } from './components/simple-segment/simple-segment.component';
+import { DuoNumberComponent } from './components/duo-number/duo-number.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SimpleSegmentComponent } from './components/simple-segment/simple-segme
     SavedTicksListComponent,
     SegmentsClockComponent,
     PadRightPipe,
-    SimpleSegmentComponent
+    SimpleSegmentComponent,
+    DuoNumberComponent
   ],
   imports: [
     BrowserModule,
